@@ -6,7 +6,7 @@ const TodoInput = () => {
       <input
         type="text"
         placeholder="What needs to be done?"
-        className="block w-full py-5 pr-5 mt-4 font-sans text-2xl font-light shadow-md outline-none pl-14 placeholder:font-thin placeholder:italic placeholder:opacity-40 placeholder:maroon"
+        className="block w-full py-5 pr-5 mt-4 font-sans text-2xl font-light shadow-md outline-none pl-14 placeholder:font-thin placeholder:italic placeholder:opacity-40 placeholder:maroon dark:bg-zinc-800 dark:text-zinc-400"
       />
       <label
         htmlFor="checkAll"
