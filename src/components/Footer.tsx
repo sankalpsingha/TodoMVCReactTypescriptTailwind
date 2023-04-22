@@ -3,19 +3,19 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="flex p-4 bg-white border-t shadow-lg">
-      <div className=" flex flex-1 items-center ">
-        <span className="text-gray-400 text-sm font-light tracking-wider">
+      <div className="flex items-center flex-1 ">
+        <span className="text-sm font-light tracking-wider text-gray-400">
           1 item left
         </span>
       </div>
-      <div className="filters  flex-grow flex space-x-1">
-        <button className="text-gray-500 font-sans font-light tracking-wider text-sm border rounded-md border-red-100 px-5 py-1 hover:border-red-300 duration-200">
+      <div className="flex flex-grow space-x-1 filters">
+        <button className="px-5 py-1 font-sans text-sm font-light tracking-wider text-gray-500 duration-200 border border-red-100 rounded-sm hover:border-red-300">
           All
         </button>
-        <button className="text-gray-500 font-sans font-light tracking-wider text-sm border border-transparent  rounded-md border-red-100 px-5 py-1 hover:border hover:border-red-300 duration-200">
+        <button className="px-5 py-1 font-sans text-sm font-light tracking-wider text-gray-500 duration-200 border border-transparent border-red-100 rounded-sm hover:border hover:border-red-300">
           Active
         </button>
-        <button className="text-gray-500 font-sans font-light tracking-wider text-sm border border-transparent  rounded-md border-red-100 px-5 py-1 hover:border hover:border-red-300 duration-200">
+        <button className="px-5 py-1 font-sans text-sm font-light tracking-wider text-gray-500 duration-200 border border-transparent border-red-100 rounded-sm hover:border hover:border-red-300">
           Completed
         </button>
       </div>

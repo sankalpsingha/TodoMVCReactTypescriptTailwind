@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 function App() {
   return (
-    <div className=" max-w-xl mt-6 mx-auto ">
+    <div className=" max-w-xl mt-6 mx-auto px-3 ">
       <Header />
       <TodoInput />
       <TodoItem />
