@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
   useEffect(() => {
     // get the <html> element
     const html = document.querySelector("html");
@@ -21,7 +22,7 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <div className="fixed flex space-x-2 italic font-light darkModeToggle dark:text-zinc-400 top-5 left-5">
+    <div className="fixed flex space-x-2 italic font-light darkModeToggle dark:text-zinc-400 top-3 md:top-5 md:left-5 right-5">
       <input
         type="checkbox"
         id="dark-mode"

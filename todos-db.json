@@ -8,7 +8,7 @@
     {
       "id": 2,
       "title": "Learn Redux",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
@@ -17,7 +17,7 @@
     },
     {
       "title": "Sankalps Test",
-      "completed": false,
+      "completed": true,
       "id": 4
     }
   ]
