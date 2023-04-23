@@ -20,7 +20,6 @@ const TodoInput = () => {
   const mutation = useMutation({
     mutationFn: postTodo,
     onSuccess: () => {
-      console.log("success");
       queryClient.invalidateQueries({ queryKey: ["todos"] });
     },
   });
