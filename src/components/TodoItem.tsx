@@ -57,6 +57,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
       </div>
       <button
         onClick={handleDeleteClicked}
+        data-testid="deleteTodo"
         className=" after:content-['×'] text-3xl  w-7 cursor-pointer text-rose-900 hover:text-red-500 duration-200 opacity-30 hover:opacity-70 font-light dark:text-rose-200"
       />
     </div>
