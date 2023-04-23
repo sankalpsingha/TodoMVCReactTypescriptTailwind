@@ -14,19 +14,13 @@ const testTodo = {
   completed: false,
 };
 
-const testTodoUpdated = {
-  id: 1,
-  title: "Test Todo",
-  completed: true,
-};
-
 describe("TodoItem component", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it("renders the todo item with the correct text and checkbox state", () => {
-    const { getByText, getByRole } = render(
+    render(
       <QueryClientProvider client={queryClient}>
         <TodoItem todo={testTodo} />
       </QueryClientProvider>
@@ -40,7 +34,7 @@ describe("TodoItem component", () => {
     const mockedAxios = axios as jest.Mocked<typeof axios>;
     mockedAxios.put.mockResolvedValue({} as AxiosResponse);
 
-    const { getByRole } = render(
+    render(
       <QueryClientProvider client={queryClient}>
         <TodoItem todo={testTodo} />
       </QueryClientProvider>
@@ -61,7 +55,7 @@ describe("TodoItem component", () => {
   it("deletes the todo item when the delete button is clicked", async () => {
     const mockedAxios = axios as jest.Mocked<typeof axios>;
     mockedAxios.delete.mockResolvedValue({} as AxiosResponse);
-    const { getByText } = render(
+    render(
       <QueryClientProvider client={queryClient}>
         <TodoItem todo={testTodo} />
       </QueryClientProvider>

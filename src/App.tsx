@@ -1,7 +1,6 @@
 import React from "react";
 import TodoInput from "./components/TodoInput";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import DarkModeToggle from "./components/DarkModeToggle";
 import Todos from "./components/Todos";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
