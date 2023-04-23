@@ -2,7 +2,7 @@
   "todos": [
     {
       "title": "Learn React",
-      "completed": false,
+      "completed": true,
       "id": 1
     },
     {
@@ -11,9 +11,9 @@
       "id": 2
     },
     {
-      "title": "Sankalps Test",
+      "title": "Learn TanStack Query",
       "completed": false,
-      "id": 4
+      "id": 6
     }
   ]
 }

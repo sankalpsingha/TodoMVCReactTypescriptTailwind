@@ -2,40 +2,40 @@ import React from "react";
 import TodoInterface from "../interfaces/TodoInterface";
 import axios from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 interface TodoItemProps {
   todo: TodoInterface;
 }
 
 const TodoItem = ({ todo }: TodoItemProps) => {
-  const updateTodo = () => {
-    return axios.put(`http://localhost:3001/todos/${todo.id}`, {
-      title: todo.title.trim(),
-      completed: !todo.completed,
-    });
+  const mutateTodo = async (
+    mutationType: "update" | "delete"
+  ): Promise<void> => {
+    if (mutationType === "update") {
+      await axios.put(`http://localhost:3001/todos/${todo.id}`, {
+        title: todo.title.trim(),
+        completed: !todo.completed,
+      });
+    } else if (mutationType === "delete") {
+      await axios.delete(`http://localhost:3001/todos/${todo.id}`);
+    }
   };
-  const deleteTodo = () => {
-    return axios.delete(`http://localhost:3001/todos/${todo.id}`);
-  };
+
   const queryClient = useQueryClient();
-  const markAsCompleted = useMutation({
-    mutationFn: updateTodo,
+  const mutateTodoMutation = useMutation(mutateTodo, {
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
+      queryClient.invalidateQueries(["todos"]);
     },
   });
 
-  const deleteTodoMutation = useMutation({
-    mutationFn: deleteTodo,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
-    },
-  });
   const handleCheckClicked = () => {
-    markAsCompleted.mutate();
+    mutateTodoMutation.mutate("update");
   };
+
   const handleDeleteClicked = () => {
-    deleteTodoMutation.mutate();
+    mutateTodoMutation.mutate("delete");
   };
+
   return (
     <div className="flex items-center justify-between p-5 bg-white border-b border-gray-200 todo-item last-of-type:border-none dark:bg-zinc-800 dark:text-zinc-300 dark:border-b-zinc-700 ">
       <div className="flex input-fields">
