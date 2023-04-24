@@ -1,14 +1,14 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import TodoInput from "./components/TodoInput";
 import Header from "./components/Header";
 import DarkModeToggle from "./components/DarkModeToggle";
 import Todos from "./components/Todos";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Route, Routes } from "react-router-dom";
 
 const queryClient = new QueryClient();
-
-function App() {
+const app = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="absolute w-full h-full bg-cream dark:bg-zinc-900">
@@ -16,12 +16,16 @@ function App() {
           <DarkModeToggle />
           <Header />
           <TodoInput />
-          <Todos />
+          <Routes>
+            <Route path="/" element={<Todos />} />
+            <Route path="/active" element={<Todos filter="active" />} />
+            <Route path="/completed" element={<Todos filter="completed" />} />
+          </Routes>
         </div>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
-}
+};
 
-export default App;
+export default app;
