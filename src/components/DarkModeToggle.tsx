@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(true);
+  // get the dark mode preference from localStorage if it's available when the application loads
+  useEffect(() => {
+    const darkModePreference = localStorage.getItem("darkMode");
+    if (darkModePreference) {
+      setDarkMode(JSON.parse(darkModePreference));
+    }
+  }, []);
 
   useEffect(() => {
     // get the <html> element
@@ -19,6 +26,8 @@ const DarkModeToggle = () => {
 
   const onChange = () => {
     setDarkMode(!darkMode);
+    // Set the preference to localStorage
+    localStorage.setItem("darkMode", JSON.stringify(!darkMode));
   };
 
   return (
