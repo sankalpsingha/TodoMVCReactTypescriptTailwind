@@ -1,3 +1,7 @@
+### Demo
+
+![](demo.gif)
+
 # Modern Todo App
 
 This is a modern Todo app built using React, TypeScript, Tailwind CSS, React Query, and Jest for testing. This application allows users to manage their tasks efficiently with a clean and intuitive user interface.
